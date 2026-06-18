@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vowel and Consonant Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Vowel and Consonant Counter</h2>
+
+        <input type="text" id="textInput" placeholder="Enter text">
+        <br>
+
+        <button onclick="countVC()">Count</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function countVC() {
+            let text = document.getElementById("textInput").value.toLowerCase();
+
+            let vowels = 0;
+            let consonants = 0;
+
+            for (let char of text) {
+                if (/[aeiou]/.test(char)) {
+                    vowels++;
+                } 
+                else if (/[a-z]/.test(char)) {
+                    consonants++;
+                }
+            }
+
+            document.getElementById("result").innerHTML =
+                "Vowels: " + vowels + "<br>Consonants: " + consonants;
+        }
+    </script>
+
+</body>
+</html>
